@@ -1,5 +1,4 @@
 
-
 const constants = {
   WAIT_QUICK: 1000,
   WAIT_SHORT: 5000,

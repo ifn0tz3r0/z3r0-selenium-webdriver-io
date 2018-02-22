@@ -8,7 +8,6 @@ import pageGoogle from '../../../src/pageobjects/pageGoogle'
 describe('google test', function() {
   it('should navigate to google search page, perform verification, and submit a search', function () {
 
-
     console.log(`navigating to ${pageGoogle.url}`)
     browser.url(pageGoogle.url)
     var title = browser.getTitle()
@@ -17,7 +16,6 @@ describe('google test', function() {
 
     browser.waitForVisible(pageGoogle.elementSearchInput.selector, constants.WAIT_LONG)
     browser.setValue(pageGoogle.elementSearchInput.selector, pageGoogle.searchTerm)
-
 
     //  ///////////////////////////////////////////////////////////////////////////
     //  workaround to remove auto suggestions, which intermittently interrupts
