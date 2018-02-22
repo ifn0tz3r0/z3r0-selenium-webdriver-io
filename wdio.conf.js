@@ -1,9 +1,67 @@
-
+//  ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*
 
-./node_modules/.bin/wdio wdio.conf.js
+ java -jar -Dwebdriver.gecko.driver=./geckodriver selenium-server-standalone-3.5.3.jar
+
+./node_modules/.bin/wdio wdio.conf.js --spec test/specs/google/googletest.js --capabilities=firefox,chrome,phantomjs
 
 */
+//  ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//  ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//  ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const configs = {
+  chrome : {
+    maxInstances: "5",
+    browserName: "chrome"
+  },
+  firefox : {
+    maxInstances: "5",
+    browserName: "firefox"
+  },
+  headless : {
+    maxInstances: "5",
+    browserName: "chrome",
+    chromeOptions: {
+      args: ['--headless', '--disable-gpu', '--window-size=1280,800'],
+      binary: '/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+    }    
+  },
+};
+
+function customCapabilites() {
+
+    let caps = null;
+    let defConfig = configs.phantomjs;
+
+    if (process.argv !== undefined && process.argv.length) {
+        process.argv.forEach(arg => {
+                if (arg.indexOf('--capabilities=') !== -1) {
+                    caps = arg.replace('--capabilities=', '');
+                }
+        });
+    }
+
+    if(caps !== null){
+
+      let arr = [];
+      var capsArr = caps.split(',');
+
+      capsArr.forEach(cap => {
+        arr.push(configs[cap]);
+      });
+
+      return arr;
+    }
+    else{
+      return [defConfig];
+    }
+
+    return null;
+}
+//  ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//  ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 exports.config = {
 
@@ -45,14 +103,7 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
-    capabilities: [{
-        // maxInstances can get overwritten per capability. So if you have an in-house Selenium
-        // grid with only 5 firefox instances available you can make sure that not more than
-        // 5 instances get started at a time.
-        maxInstances: 5,
-        //
-        browserName: 'firefox'
-    }],
+    capabilities: customCapabilites(),
     //
     // ===================
     // Test Configurations
@@ -87,7 +138,7 @@ exports.config = {
     baseUrl: 'http://localhost',
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 30000,
     //
     // Default timeout in milliseconds for request
     // if Selenium Grid doesn't send response
@@ -125,17 +176,21 @@ exports.config = {
     //
     // Make sure you have the wdio adapter package for the specific framework installed
     // before running any tests.
+    /*
     framework: 'mocha',
+    */
     //
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/reporters/dot.html
-    // reporters: ['dot'],
+    reporters: ['spec'],
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
+
     mochaOpts: {
-        ui: 'bdd'
+        ui: 'bdd',
+        timeout: 100000
     },
     //
     // =====

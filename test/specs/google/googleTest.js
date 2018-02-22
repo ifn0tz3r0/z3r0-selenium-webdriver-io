@@ -1,4 +1,6 @@
-var assert = require('assert')
+
+var assert = require('chai').assert
+var expect = require('chai').expect
 
 import pageGoogle from '../../../src/pageobjects/pageGoogle'
 
@@ -11,5 +13,13 @@ describe('google test', function() {
     console.log(`verifying page title is '${pageGoogle.title}'`)
     assert.equal(title, pageGoogle.title)
 
+    browser.waitForVisible(pageGoogle.elementSearchInput.selector, 50000)
+    browser.setValue(pageGoogle.elementSearchInput.selector, pageGoogle.searchTerm)
+    browser.click(pageGoogle.elementSearchSubmit.selector)
+
+    browser.pause(5000)
+
+    let urlTxt = browser.getUrl();
+    expect(urlTxt.startsWith('https://www.google.com/search?')).to.equal(true)
   });
 });
