@@ -1,0 +1,9 @@
+
+#ignore driver and selenium server jar, to be downloaded manually
+chromedriver
+geckodriver
+phantomjs
+selenium-server-standalone-3.5.3.jar
+#ignore
+.DS_Store
+node_modules
