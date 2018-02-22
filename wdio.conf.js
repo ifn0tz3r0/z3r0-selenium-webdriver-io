@@ -13,14 +13,21 @@
 
 const configs = {
   chrome : {
-    maxInstances: "5", browserName: "chrome"
+    maxInstances: "5",
+    browserName: "chrome"
   },
   firefox : {
-    maxInstances: "5", browserName: "firefox"
+    maxInstances: "5",
+    browserName: "firefox"
   },
-  phantomjs : {
-    maxInstances: "5", browserName: "phantomjs"
-  }
+  headless : {
+    maxInstances: "5",
+    browserName: "chrome",
+    chromeOptions: {
+      args: ['--headless', '--disable-gpu', '--window-size=1280,800'],
+      binary: '/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+    }    
+  },
 };
 
 function customCapabilites() {
