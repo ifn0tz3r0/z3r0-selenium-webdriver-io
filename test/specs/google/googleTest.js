@@ -15,9 +15,20 @@ describe('google test', function() {
 
     browser.waitForVisible(pageGoogle.elementSearchInput.selector, 50000)
     browser.setValue(pageGoogle.elementSearchInput.selector, pageGoogle.searchTerm)
-    browser.click(pageGoogle.elementSearchSubmit.selector)
 
-    browser.pause(5000)
+
+    //  ///////////////////////////////////////////////////////////////////////////
+    //  workaround to remove auto suggestions, which intermittently interrupts
+    //  click on search submit. browser.keys('Escape') works in chrome but not
+    //  currently in firefox.
+    let autoSuggestClassName = 'gstl_0 sbdd_a';
+
+    browser.execute(function(className) {
+      (document.getElementsByClassName("gstl_0 sbdd_a")[0]).style.visibility = "hidden";
+    },autoSuggestClassName)
+    //  ///////////////////////////////////////////////////////////////////////////
+
+    browser.click(pageGoogle.elementSearchSubmit.selector)
 
     let urlTxt = browser.getUrl();
     expect(urlTxt.startsWith('https://www.google.com/search?')).to.equal(true)
