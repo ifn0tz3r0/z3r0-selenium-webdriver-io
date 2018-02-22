@@ -8,5 +8,4 @@ class element {
   }
 }
 
-//export default new element()
 module.exports = element;

@@ -3,7 +3,7 @@
 
  java -jar -Dwebdriver.gecko.driver=./geckodriver selenium-server-standalone-3.5.3.jar
 
-./node_modules/.bin/wdio wdio.conf.js --spec test/specs/google/googletest.js --capabilities=firefox,chrome,phantomjs
+./node_modules/.bin/wdio wdio.conf.js --spec test/specs/google/googletest.js --capabilities=firefox,chrome,headless
 
 */
 //  ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -26,7 +26,7 @@ const configs = {
     chromeOptions: {
       args: ['--headless', '--disable-gpu', '--window-size=1280,800'],
       binary: '/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
-    }    
+    }
   },
 };
 
