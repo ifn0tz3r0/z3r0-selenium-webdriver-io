@@ -33,14 +33,14 @@ const configs = {
 function customCapabilites() {
 
     let caps = null;
-    let defConfig = configs.phantomjs;
+    let defConfig = configs.headless;
 
     if (process.argv !== undefined && process.argv.length) {
-        process.argv.forEach(arg => {
-                if (arg.indexOf('--capabilities=') !== -1) {
-                    caps = arg.replace('--capabilities=', '');
-                }
-        });
+      process.argv.forEach(arg => {
+        if (arg.indexOf('--capabilities=') !== -1) {
+          caps = arg.replace('--capabilities=', '');
+        }
+      });
     }
 
     if(caps !== null){
