@@ -10,6 +10,6 @@ describe('google test', function() {
     var title = browser.getTitle()
     console.log(`verifying page title is '${pageGoogle.title}'`)
     assert.equal(title, pageGoogle.title)
-
+    console.log();
   });
 });
