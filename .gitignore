@@ -7,3 +7,4 @@ selenium-server-standalone-3.5.3.jar
 #ignore
 .DS_Store
 node_modules
+errorShots

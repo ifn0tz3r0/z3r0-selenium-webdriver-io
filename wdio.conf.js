@@ -3,7 +3,7 @@
 
  java -jar -Dwebdriver.gecko.driver=./geckodriver selenium-server-standalone-3.5.3.jar
 
-./node_modules/.bin/wdio wdio.conf.js --spec test/specs/googletest.js --capabilities=firefox,chrome,phantomjs
+./node_modules/.bin/wdio wdio.conf.js --spec test/specs/google/googletest.js --capabilities=firefox,chrome,phantomjs
 
 */
 //  ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -131,7 +131,7 @@ exports.config = {
     baseUrl: 'http://localhost',
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 30000,
     //
     // Default timeout in milliseconds for request
     // if Selenium Grid doesn't send response
@@ -180,12 +180,11 @@ exports.config = {
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
-    /*
+
     mochaOpts: {
         ui: 'bdd',
-        reporters: ['dot']
+        timeout: 100000
     },
-    */
     //
     // =====
     // Hooks
