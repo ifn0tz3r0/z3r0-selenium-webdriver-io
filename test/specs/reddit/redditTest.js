@@ -16,6 +16,9 @@ describe('reddit test', function() {
 
     browser.pause(constants.WAIT_SHORT)
 
+
+    //  ///////////////////////////////////////////////////////////////////////////
+    //  workaround for intermittent 'sign up' for reddit modal.
     let onboardModalSelector = "div[id='onboarding-splash']"
 
     if(browser.isExisting(onboardModalSelector) && browser.isVisible(onboardModalSelector)){
@@ -26,47 +29,65 @@ describe('reddit test', function() {
     else{
       console.log(`signup modal not dectected: ${onboardModalSelector}`)
     }
+    //  ///////////////////////////////////////////////////////////////////////////
 
     let redditTopList = browser.elements(pageReddit.redditTopSelector)
 
     let len = redditTopList.value.length
 
-    console.log(len)
+    console.log(`there are a total of ${len} entries...`)
 
-    redditTopList.value.forEach(ele => {
+    let iCount = 0
 
-      console.log('................................')
+    let jsonArr = []
+
+    for(var i = 0; i < len; i++){
+
+      if(iCount >= pageReddit.numRedditEntries)
+      {
+        break
+      }
+
+      let ele = redditTopList.value[i]
+
       let curEntryTitle = browser.elementIdElement(ele.ELEMENT,"a[class^='title']")
 
       let paragraphTagLine = browser.elementIdElement(ele.ELEMENT,"p[class^='tagline']")
-      let paragraphTagLineTxt = browser.elementIdText(paragraphTagLine.value.ELEMENT).value;
+      let paragraphTagLineTxt = browser.elementIdText(paragraphTagLine.value.ELEMENT).value
 
       if(paragraphTagLineTxt.includes('promoted by')){
         console.log('...skipping promoted entry...')
-        console.log('................................')
-        return;
+        continue
       }
-      console.log('................................')
 
-      console.log(browser.elementIdText(curEntryTitle.value.ELEMENT).value)
-      console.log('\t' + browser.elementIdAttribute(curEntryTitle.value.ELEMENT,'href').value)
+      let strCurEntryTitle = ''
+      let strCurEntryHref = ''
+      let strCurEntryAuthor = ''
+      let strCurEntrySubReddit = ''
+
+      strCurEntryTitle = browser.elementIdText(curEntryTitle.value.ELEMENT).value
+      strCurEntryHref = browser.elementIdAttribute(curEntryTitle.value.ELEMENT,'href').value
 
       let curEntryAuthor = browser.elementIdElement(ele.ELEMENT,"a[class^='author']")
-      console.log('\t\t' + browser.elementIdText(curEntryAuthor.value.ELEMENT).value)
+      strCurEntryAuthor = browser.elementIdText(curEntryAuthor.value.ELEMENT).value
 
       let curEntrySubReddit = browser.elementIdElement(ele.ELEMENT,"a[class^='subreddit']")
+      strCurEntrySubReddit = browser.elementIdText(curEntrySubReddit.value.ELEMENT).value
 
-      if(curEntrySubReddit !== null){
+      iCount++
 
-        if(curEntrySubReddit.value !== null){
-
-          if(curEntrySubReddit.value.ELEMENT !== null){
-            console.log('\t\t\t' + browser.elementIdText(curEntrySubReddit.value.ELEMENT).value)
-          }
-        }
+      var json = {
+        'rank' : iCount,
+        'title' : strCurEntryTitle,
+        'author' : strCurEntryAuthor,
+        'href' : strCurEntryHref,
+        'subreddit' : strCurEntrySubReddit
       }
 
-      console.log('................................')
-    })
+      jsonArr.push(json)
+    }
+
+    console.log(JSON.stringify(jsonArr, null, "\t"))
+
   })
 })
