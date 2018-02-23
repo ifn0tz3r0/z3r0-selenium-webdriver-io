@@ -13,13 +13,13 @@ https://github.com/ifn0tz3r0/z3r0-selenium-webdriver-io/tree/master/test/specs
 1. From root directory perform npm i.
 1. Download the latest geckodriver:
 
-  Linux 64 bit : curl -L https://github.com/mozilla/geckodriver/releases/download/v0.16.0/geckodriver-v0.16.0-linux64.tar.gz | tar xz
+    Linux 64 bit : curl -L https://github.com/mozilla/geckodriver/releases/download/v0.16.0/geckodriver-v0.16.0-linux64.tar.gz | tar xz
 
-  OSX: curl -L https://github.com/mozilla/geckodriver/releases/download/v0.16.0/geckodriver-v0.16.0-macos.tar.gz | tar xz
+    OSX: curl -L https://github.com/mozilla/geckodriver/releases/download/v0.16.0/geckodriver-v0.16.0-macos.tar.gz | tar xz
 
 1. Start selenium standalone server:
 
-  java -jar -Dwebdriver.gecko.driver=./geckodriver selenium-server-standalone-3.5.3.jar
+    java -jar -Dwebdriver.gecko.driver=./geckodriver selenium-server-standalone-3.5.3.jar
 
 1. Download required webdrivers for chrome:
 
