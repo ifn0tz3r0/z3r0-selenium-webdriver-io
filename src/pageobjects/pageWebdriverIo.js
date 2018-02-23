@@ -12,7 +12,7 @@ class pageWebDriverIo {
     this.elementLinkApi = new element('api link', 'body > nav > ul > li:nth-child(4) > a')
     this.elementActionsDivExpectedLen = 17;
     this.elementActionsDiv = new element('actions parent div', 'body > section > div > section.inner.api > nav > div.commands.action.active')
-    
+
   }
 }
 

@@ -16,7 +16,6 @@ class pageReddit {
     this.redditTopSelector = 'div[class^="entry"]'
     this.elementSignUpModalSkipForNowButton = new element('signup - skip for now', "a[class='skip-for-now']")
 
-
   }
 }
 
