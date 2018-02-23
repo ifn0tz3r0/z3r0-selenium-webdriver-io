@@ -23,7 +23,7 @@ https://github.com/ifn0tz3r0/z3r0-selenium-webdriver-io/tree/master/test/specs
 
 1. Download required webdrivers for chrome:
 
-https://www.seleniumhq.org/download/
+    https://www.seleniumhq.org/download/
 
 1. From root, run npm test to run all tests on all supported browsers.
 
