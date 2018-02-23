@@ -224,6 +224,9 @@ exports.config = {
      */
      before: function (capabilities, specs) {
        require('babel-register');
+       require('./src/customCommands.js');
+       require('./src/element.js');
+
      },
     /**
      * Runs before a WebdriverIO command gets executed.

@@ -14,10 +14,9 @@ describe('google test', function() {
     console.log(`verifying page title is '${pageGoogle.title}'`)
     assert.equal(title, pageGoogle.title)
 
-    browser.waitForVisible(pageGoogle.elementSearchInput.selector, constants.WAIT_LONG)
-
     console.log(`entering search term '${pageGoogle.searchTerm}'`)
-    browser.setValue(pageGoogle.elementSearchInput.selector, pageGoogle.searchTerm)
+
+    browser.setValueWhenVisible(pageGoogle.elementSearchInput, pageGoogle.searchTerm)
 
     //  ///////////////////////////////////////////////////////////////////////////
     //  workaround to remove auto suggestions, which intermittently interrupts
@@ -31,7 +30,7 @@ describe('google test', function() {
     //  ///////////////////////////////////////////////////////////////////////////
 
     console.log('submitting search')
-    browser.click(pageGoogle.elementSearchSubmit.selector)
+    browser.clickWhenVisible(pageGoogle.elementSearchSubmit)
 
     let expectedUrl = 'https://www.google.com/search?';
     console.log(`verifying url contains/starts with '${expectedUrl}'`)
