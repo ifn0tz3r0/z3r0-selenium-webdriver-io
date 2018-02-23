@@ -3,7 +3,11 @@
 
  java -jar -Dwebdriver.gecko.driver=./geckodriver selenium-server-standalone-3.5.3.jar
 
+ ./node_modules/.bin/wdio wdio.conf.js --capabilities=chrome
+ ./node_modules/.bin/wdio wdio.conf.js --capabilities=chrome,firefox,headless
+
 ./node_modules/.bin/wdio wdio.conf.js --spec test/specs/google/googletest.js --capabilities=firefox,chrome,headless
+./node_modules/.bin/wdio wdio.conf.js --spec test/specs/webdriverio/webDriverIoTest.js --capabilities=firefox,chrome,headless
 
 */
 //  ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -223,9 +227,9 @@ exports.config = {
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
      before: function (capabilities, specs) {
-       require('babel-register');
-       require('./src/customCommands.js');
-       require('./src/element.js');
+       require('babel-register')
+       require('./src/customCommands.js')
+       require('./src/element.js')
 
      },
     /**
