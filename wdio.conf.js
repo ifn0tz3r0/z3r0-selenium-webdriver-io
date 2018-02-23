@@ -231,6 +231,8 @@ exports.config = {
        require('./src/customCommands.js')
        require('./src/element.js')
 
+       browser.windowHandleSize({width:1280,height:800})
+
      },
     /**
      * Runs before a WebdriverIO command gets executed.
