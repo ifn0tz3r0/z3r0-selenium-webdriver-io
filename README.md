@@ -11,7 +11,7 @@ https://github.com/ifn0tz3r0/z3r0-selenium-webdriver-io/tree/master/test/specs
 
 1. Clone the repo - git clone https://github.com/ifn0tz3r0/z3r0-selenium-webdriver-io.git
 1. From root directory perform npm i.
-1. Download the latest geckodriver:
+1. Download the latest geckodriver, move it to the project root directory.
 
     Linux 64 bit : curl -L https://github.com/mozilla/geckodriver/releases/download/v0.16.0/geckodriver-v0.16.0-linux64.tar.gz | tar xz
 
@@ -21,7 +21,7 @@ https://github.com/ifn0tz3r0/z3r0-selenium-webdriver-io/tree/master/test/specs
 
     java -jar -Dwebdriver.gecko.driver=./geckodriver selenium-server-standalone-3.5.3.jar
 
-1. Download required webdrivers for chrome:
+1. Download required webdrivers for chrome, move them to the project root directory.
 
     https://www.seleniumhq.org/download/
 
