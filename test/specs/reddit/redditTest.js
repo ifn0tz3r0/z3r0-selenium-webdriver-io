@@ -16,7 +16,6 @@ describe('reddit test', function() {
 
     browser.pause(constants.WAIT_SHORT)
 
-
     //  ///////////////////////////////////////////////////////////////////////////
     //  workaround for intermittent 'sign up' for reddit modal.
     let onboardModalSelector = "div[id='onboarding-splash']"
