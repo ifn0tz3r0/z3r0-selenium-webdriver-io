@@ -15,6 +15,8 @@ describe('google test', function() {
     assert.equal(title, pageGoogle.title)
 
     browser.waitForVisible(pageGoogle.elementSearchInput.selector, constants.WAIT_LONG)
+
+    console.log(`entering search term '${pageGoogle.searchTerm}'`)
     browser.setValue(pageGoogle.elementSearchInput.selector, pageGoogle.searchTerm)
 
     //  ///////////////////////////////////////////////////////////////////////////
@@ -28,9 +30,12 @@ describe('google test', function() {
     },autoSuggestClassName)
     //  ///////////////////////////////////////////////////////////////////////////
 
+    console.log('submitting search')
     browser.click(pageGoogle.elementSearchSubmit.selector)
 
-    let urlTxt = browser.getUrl();
-    expect(urlTxt.startsWith('https://www.google.com/search?')).to.equal(true)
+    let expectedUrl = 'https://www.google.com/search?';
+    console.log(`verifying url contains/starts with '${expectedUrl}'`)
+    let urlTxt = browser.getUrl()
+    expect(urlTxt.startsWith(expectedUrl)).to.equal(true)
   });
 });
