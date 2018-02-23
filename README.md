@@ -69,7 +69,7 @@ selectByAttribute :: http://webdriver.io/api/action/selectByAttribute.html
 
 #### redditTest.js
 
-The redditTest.js script navigates to the reddit home page, and parses for the top ten entries, skipping any promoted ones. Once the entries are parsed, the script outputs the top 10 reddit entries to the console in formatted json. The script includes a workaround for a modal that intermittently prompts the user to sign up to reddit.
+The redditTest.js script navigates to the reddit home page, and parses for the top 10 entries, skipping any promoted ones. Once the entries are parsed, the script outputs the top 10 reddit entries to the console in formatted json. The script includes a workaround for a modal that intermittently prompts the user to sign up to reddit.
 
 ```
 navigating to http://reddit.com/
