@@ -8,4 +8,4 @@ class element {
   }
 }
 
-module.exports = element;
+module.exports = element

@@ -14,8 +14,9 @@ describe('google test', function() {
     console.log(`verifying page title is '${pageGoogle.title}'`)
     assert.equal(title, pageGoogle.title)
 
-    browser.waitForVisible(pageGoogle.elementSearchInput.selector, constants.WAIT_LONG)
-    browser.setValue(pageGoogle.elementSearchInput.selector, pageGoogle.searchTerm)
+    console.log(`entering search term '${pageGoogle.searchTerm}'`)
+
+    browser.setValueWhenVisible(pageGoogle.elementSearchInput, pageGoogle.searchTerm)
 
     //  ///////////////////////////////////////////////////////////////////////////
     //  workaround to remove auto suggestions, which intermittently interrupts
@@ -24,13 +25,17 @@ describe('google test', function() {
     let autoSuggestClassName = 'gstl_0 sbdd_a'
 
     browser.execute(function(className) {
-      (document.getElementsByClassName("gstl_0 sbdd_a")[0]).style.visibility = "hidden";
+      (document.getElementsByClassName(className)[0]).style.visibility = "hidden"
     },autoSuggestClassName)
     //  ///////////////////////////////////////////////////////////////////////////
 
-    browser.click(pageGoogle.elementSearchSubmit.selector)
+    console.log('submitting search')
+    browser.clickWhenVisible(pageGoogle.elementSearchSubmit)
 
-    let urlTxt = browser.getUrl();
-    expect(urlTxt.startsWith('https://www.google.com/search?')).to.equal(true)
-  });
-});
+    let expectedUrl = 'https://www.google.com/search?';
+    console.log(`verifying url contains/starts with '${expectedUrl}'`)
+    let urlTxt = browser.getUrl()
+    expect(urlTxt.startsWith(expectedUrl)).to.equal(true)
+
+  })
+})
