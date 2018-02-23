@@ -1,6 +1,9 @@
 {
   "requires": true,
   "lockfileVersion": 1,
+  "scripts": {
+    "test": "./node_modules/.bin/wdio wdio.conf.js --capabilities=chrome,firefox,headless"
+  },
   "dependencies": {
     "ajv": {
       "integrity": "sha1-c7Xuyj+rZT49P5Qis0GtQiBdyWU=",
