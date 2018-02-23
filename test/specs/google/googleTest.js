@@ -25,7 +25,7 @@ describe('google test', function() {
     let autoSuggestClassName = 'gstl_0 sbdd_a'
 
     browser.execute(function(className) {
-      (document.getElementsByClassName("gstl_0 sbdd_a")[0]).style.visibility = "hidden"
+      (document.getElementsByClassName(className)[0]).style.visibility = "hidden"
     },autoSuggestClassName)
     //  ///////////////////////////////////////////////////////////////////////////
 
@@ -36,6 +36,6 @@ describe('google test', function() {
     console.log(`verifying url contains/starts with '${expectedUrl}'`)
     let urlTxt = browser.getUrl()
     expect(urlTxt.startsWith(expectedUrl)).to.equal(true)
-    
+
   })
 })
