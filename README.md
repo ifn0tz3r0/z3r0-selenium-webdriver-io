@@ -32,6 +32,10 @@ https://github.com/ifn0tz3r0/z3r0-selenium-webdriver-io/tree/master/test/specs
 
 #### googleTest.js
 
+
+
+![](https://github.com/ifn0tz3r0/z3r0-selenium-webdriver-io/blob/master/img/google.gif)
+
 The googleTest.js script navigates to google.com, enters a search term and submits a search. It includes a browser.execute() workaround for hiding auto-suggested search terms that can interrupt the search submission button click on some browsers.
 
 ```
@@ -45,6 +49,8 @@ verifying url contains/starts with 'https://www.google.com/search?'
 ```
 
 #### webDriverIoTest.js
+
+![](https://github.com/ifn0tz3r0/z3r0-selenium-webdriver-io/blob/master/img/webdriver.gif)
 
 The webDriverIoTest.js script navigates to webdriver.io home page and clicks the API link in the header. It then proceeds to load all children within the Actions section and display them in the console.
 
@@ -68,6 +74,8 @@ selectByAttribute :: http://webdriver.io/api/action/selectByAttribute.html
 ```
 
 #### redditTest.js
+
+![](https://github.com/ifn0tz3r0/z3r0-selenium-webdriver-io/blob/master/img/reddit.gif)
 
 The redditTest.js script navigates to the reddit home page, and parses for the top 10 entries, skipping any promoted ones. Once the entries are parsed, the script outputs the top 10 reddit entries to the console in formatted json. The script includes a workaround for a modal that intermittently prompts the user to sign up to reddit.
 
