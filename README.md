@@ -6,20 +6,35 @@ Individual tests can be found here:
 
 https://github.com/ifn0tz3r0/z3r0-selenium-webdriver-io/tree/master/test/specs
 
+https://github.com/ifn0tz3r0/z3r0-selenium-webdriver-io/blob/master/test/specs/google/googleTest.js
+https://github.com/ifn0tz3r0/z3r0-selenium-webdriver-io/blob/master/test/specs/reddit/redditTest.js
+https://github.com/ifn0tz3r0/z3r0-selenium-webdriver-io/blob/master/test/specs/webdriverio/webDriverIoTest.js
+
 
 ## Running the tests
 
-1. Clone the repo - git clone https://github.com/ifn0tz3r0/z3r0-selenium-webdriver-io.git
+1. Clone the repo.
+
+    ```
+    git clone https://github.com/ifn0tz3r0/z3r0-selenium-webdriver-io.git
+    ```
 1. From root directory perform npm i.
 1. Download the latest geckodriver, move it to the project root directory.
 
-    Linux 64 bit : curl -L https://github.com/mozilla/geckodriver/releases/download/v0.16.0/geckodriver-v0.16.0-linux64.tar.gz | tar xz
-
-    OSX: curl -L https://github.com/mozilla/geckodriver/releases/download/v0.16.0/geckodriver-v0.16.0-macos.tar.gz | tar xz
+    Linux 64 bit:
+    ```
+    curl -L https://github.com/mozilla/geckodriver/releases/download/v0.16.0/geckodriver-v0.16.0-linux64.tar.gz | tar xz
+    ```
+    OSX:
+    ```    
+    curl -L https://github.com/mozilla/geckodriver/releases/download/v0.16.0/geckodriver-v0.16.0-macos.tar.gz | tar xz
+    ```
 
 1. Start selenium standalone server:
 
+    ```
     java -jar -Dwebdriver.gecko.driver=./geckodriver selenium-server-standalone-3.5.3.jar
+    ```
 
 1. Download required webdrivers for chrome, move them to the project root directory.
 
@@ -27,6 +42,9 @@ https://github.com/ifn0tz3r0/z3r0-selenium-webdriver-io/tree/master/test/specs
 
 1. From root, run npm test to run all tests on all supported browsers.
 
+    ```
+    npm run test
+    ```
 
 ## About the tests
 
