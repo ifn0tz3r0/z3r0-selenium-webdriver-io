@@ -19,6 +19,11 @@ https://github.com/ifn0tz3r0/z3r0-selenium-webdriver-io/blob/master/test/specs/w
     git clone https://github.com/ifn0tz3r0/z3r0-selenium-webdriver-io.git
     ```
 1. From root directory perform npm i.
+
+    ```
+    npm i
+    ```
+
 1. Download the latest geckodriver, move it to the project root directory.
 
     Linux 64 bit:
