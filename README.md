@@ -10,6 +10,11 @@ https://github.com/ifn0tz3r0/z3r0-selenium-webdriver-io/blob/master/test/specs/g
 https://github.com/ifn0tz3r0/z3r0-selenium-webdriver-io/blob/master/test/specs/reddit/redditTest.js
 https://github.com/ifn0tz3r0/z3r0-selenium-webdriver-io/blob/master/test/specs/webdriverio/webDriverIoTest.js
 
+## Supported browsers
+
+* chrome
+* firefox
+* headless (chrome)
 
 ## Running the tests
 
